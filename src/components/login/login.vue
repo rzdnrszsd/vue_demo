@@ -12,7 +12,9 @@
                   v-model="loginForm.username"
                   autoComplete="on"
                   placeholder="请输入用户名">
-
+          <span slot="prefix">
+            <svg-icon icon-class="user" class="color-main"></svg-icon>
+          </span>
         </el-input>
       </el-form-item>
       <el-form-item prop="password">
@@ -22,7 +24,12 @@
                   v-model="loginForm.password"
                   autoComplete="on"
                   placeholder="请输入密码">
-
+          <span slot="prefix">
+            <svg-icon icon-class="password" class="color-main"></svg-icon>
+          </span>
+          <span slot="suffix" @click="showPwd">
+            <svg-icon icon-class="eye" class="color-main"></svg-icon>
+          </span>
         </el-input>
       </el-form-item>
       <el-form-item style="margin-bottom: 60px;text-align: center">
