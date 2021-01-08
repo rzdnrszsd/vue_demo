@@ -50,6 +50,10 @@ module.exports = {
         }
       },
       {
+        test: /\.sass$/,
+        loaders: ['style', 'css', 'sass']
+      },
+      {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
         exclude: resolve('src/icons'),

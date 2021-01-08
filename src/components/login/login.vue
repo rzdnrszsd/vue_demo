@@ -46,7 +46,7 @@
 </template>
 
 <script>
-
+import {setSupport, getSupport, setCookie, getCookie} from '@/utils/support';
 export default {
   name: 'login',
   data() {
@@ -64,7 +64,8 @@ export default {
     }
   },
   created() {
-
+    this.loginForm.username = getCookie("username");
+    this.loginForm.password = getCookie("password");
     if (this.loginForm.username === undefined || this.loginForm.username == null || this.loginForm.username === '') {
       this.loginForm.username = 'admin';
     }
@@ -93,7 +94,7 @@ export default {
             this.loading = false;
             setCookie("username", this.loginForm.username, 15);
             setCookie("password", this.loginForm.password, 15);
-            this.$router.push({path: '/'})
+            this.$router.replace({path: '/home'})
           }).catch(() => {
             this.loading = false
           })
